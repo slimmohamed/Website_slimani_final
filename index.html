@@ -1,543 +1,284 @@
 <!DOCTYPE html>
 <html lang="fr" class="scroll-smooth">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mohamed Slimani - Portfolio</title>
-    <!-- Google Fonts: Cormorant Garamond and Manrope -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Cinzel:wght@400..900&family=Crimson+Pro:wght@400;500;600&family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=GFS+Didot&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Lora:ital,wght@0,400..700;1,400..700&family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Tinos:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- GSAP for advanced animations -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-    <link rel="stylesheet" href="/assets/css/main.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            animation: {
-              'float': 'float 6s ease-in-out infinite',
-              'fade-in-up': 'fadeInUp 1s ease-out forwards',
-              'pulse-slow': 'pulse 4s ease-in-out infinite'
-            },
-            keyframes: {
-              float: {
-                '0%, 100%': { transform: 'translateY(0)' },
-                '50%': { transform: 'translateY(-10px)' },
-              },
-              fadeInUp: {
-                '0%': { opacity: 0, transform: 'translateY(20px)' },
-                '100%': { opacity: 1, transform: 'translateY(0)' },
-              },
-            },
-          }
-        }
-      }
-    </script>
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-      document.addEventListener('DOMContentLoaded', () => {
-        AOS.init();
-      });
-    </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ESSENTÉ — Minimal Luxe Durable</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            sand: "#e8dfd1",
+            dune: "#d6c7b0",
+            warmgray: "#b9aea2",
+            charcoal: "#2f2c28",
+            softblack: "#1f1d1a",
+          },
+          fontFamily: {
+            display: ["Cormorant Garamond", "serif"],
+            sans: ["Manrope", "sans-serif"],
+          },
+          boxShadow: {
+            soft: "0 20px 60px rgba(31, 29, 26, 0.08)",
+          },
+        },
+      },
+    };
+  </script>
 </head>
-<body class="bg-stone-100 text-stone-800">
-  <a href="#hero" class="sr-only focus:not-sr-only">Skip to main content</a>
-    <canvas id="background-canvas"></canvas>
-    <header class="fixed top-0 left-0 w-full z-50 bg-white/70 backdrop-blur shadow-sm">
-      <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
-        <div class="flex items-center justify-between">
-                <div class="flex items-center space-x-4">
-                    <button id="mobile-menu-button" class="md:hidden p-2 rounded-lg text-gray-700 hover:bg-gray-100" aria-label="Open menu">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
-                    </button>
-                    <a href="#hero" class="transform transition duration-300 hover:scale-105">
-                        <img src="/assets/images/ms3.png" alt="Logo Mohamed Slimani" class="h-16 w-auto" onerror="this.onerror=null;this.src='https://placehold.co/120x64/FFFFFF/000000?text=MS';">
-                    </a>
-                </div>
-                <nav class="hidden md:flex" role="navigation" aria-label="Main Navigation">
-                    <ul id="desktop-nav-menu" class="flex items-center gap-2">
-                        <li><a href="#hero" class="nav-link px-4 py-2 text-sm  text-gray-800 hover:text-teal-600 rounded-full">HOME</a></li>
-                        <li><a href="#about" class="nav-link px-4 py-2 text-sm  text-gray-700 hover:text-teal-600 rounded-full">ABOUT ME</a></li>
-                        <li><a href="#works-section" id="works-link" class="nav-link px-4 py-2 text-sm  text-gray-700 hover:text-teal-600 rounded-full">WORKS</a></li>
-                        <li><a href="#article-section" class="nav-link px-4 py-2 text-sm  text-gray-700 hover:text-teal-600 rounded-full">ARTICLE</a></li>
-                        <li><a href="#contact-section" class="nav-link px-4 py-2 text-sm  text-gray-700 hover:text-teal-600 rounded-full">CONTACT</a></li>
-                    </ul>
-                </nav>
-            </div>
-            
-            <div id="mobile-menu" class="hidden md:hidden mt-2 rounded-lg py-4 border-t border-gray-200">
-              <ul class="space-y-1">
-                <li>
-                  <a href="#hero" class="flex items-center gap-2 rounded-lg bg-gray-100 px-4 py-2 text-gray-700 hover:bg-gray-200">
-                    <!-- Home Icon -->
-                    <svg xmlns="http://www.w3.org/2000/svg" class="size-5 opacity-75 shadow-sm" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                      <path stroke-linecap="round" stroke-linejoin="round" d="M3 12l9-9 9 9M4 10v10a1 1 0 001 1h3m10-11v10a1 1 0 01-1 1h-3m-4 0v-4a1 1 0 011-1h2a1 1 0 011 1v4" />
-                    </svg>
-                    <span class="text-sm font-medium">Home</span>
-                  </a>
-                </li>
-              
-                <li>
-                  <a href="#about" class="flex items-center gap-2 rounded-lg px-4 py-2 text-gray-500 hover:bg-gray-100 hover:text-gray-700">
-                    <!-- About Icon -->
-                    <svg xmlns="http://www.w3.org/2000/svg" class="size-5 opacity-75 shadow-sm" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                      <path stroke-linecap="round" stroke-linejoin="round" d="M5.121 17.804A3 3 0 018.293 17h7.414a3 3 0 013.172.804M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                    </svg>
-                    <span class="text-sm font-medium">About Me</span>
-                  </a>
-                </li>
-              
-                <li>
-                  <a href="#works-section" class="flex items-center gap-2 rounded-lg px-4 py-2 text-gray-500 hover:bg-gray-100 hover:text-gray-700">
-                    <!-- Works Icon -->
-                    <svg xmlns="http://www.w3.org/2000/svg" class="size-5 opacity-75 shadow-sm" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                      <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 10h16M4 14h16M4 18h16" />
-                    </svg>
-                    <span class="text-sm font-medium">Works</span>
-                  </a>
-                </li>
-              
-                <li>
-                  <a href="#article-section" class="flex items-center gap-2 rounded-lg px-4 py-2 text-gray-500 hover:bg-gray-100 hover:text-gray-700">
-                    <!-- Article Icon -->
-                    <svg xmlns="http://www.w3.org/2000/svg" class="size-5 opacity-75 shadow-sm" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                      <path stroke-linecap="round" stroke-linejoin="round" d="M4 5h16M4 10h16M4 15h16M4 20h16" />
-                    </svg>
-                    <span class="text-sm font-medium">Article</span>
-                  </a>
-                </li>
-              
-                <li>
-                  <a href="#contact-section" class="flex items-center gap-2 rounded-lg px-4 py-2 text-gray-500 hover:bg-gray-100 hover:text-gray-700">
-                    <!-- Contact Icon -->
-                    <svg xmlns="http://www.w3.org/2000/svg" class="size-5 opacity-75 shadow-sm" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                      <path stroke-linecap="round" stroke-linejoin="round" d="M21 10a3.38 3.38 0 01-1.016 2.438A3.38 3.38 0 0117.5 13H6.5a3.38 3.38 0 01-2.484-1.016A3.38 3.38 0 013 10V6.5A3.5 3.5 0 016.5 3h11A3.5 3.5 0 0121 6.5V10z" />
-                      <path stroke-linecap="round" stroke-linejoin="round" d="M3 19h18M3 19v2h18v-2" />
-                    </svg>
-                    <span class="text-sm font-medium">Contact</span>
-                  </a>
-                </li>
-              </ul>
-              
-            </div>
-        </div>
-    </header>
-
-
-    <main role="main">
-        <!-- Hero Section -->
-        <section id="hero" class="pt-48 min-h-[140vh] flex flex-col justify-center items-center text-center bg-gradient-to-b from-amber-100 to-orange-200">
-          <div class="text-center max-w-3xl">
-                <p class="tracking-widest uppercase text-sm text-teal-700">Bienvenue</p>
-                <span class="block w-16 h-0.5 bg-gray-700 mx-auto mt-2"></span>
-                <div class="mt-10 flex justify-center gsap-zoom-in">
-                    <div class="relative w-auto h-auto">
-                        <img src="/assets/images/pre.png" alt="Photo de profil Mohamed Slimani"
-                             class="w-full h-full object-cover animate-float-smooth transition duration-500 ease-in-out hover:saturate-100 hover:brightness-10 hover:contrast-125" 
-                             onerror="this.onerror=null;this.src='https://placehold.co/300x300/e0f7fa/1f2937?text=MS';">
-                    </div>
-                </div>
-                
-                <h1 id="hero-title" class="text-5xl md:text-6xl mt-10 mb-4 gsap-fade-in-up text-center">
-                    <img
-                    src="/assets/images/hello.png" 
-                    alt="Texte Hello Mohamed Slimani" 
-                    class="inline-block h-[4em] transition-transform duration-300 ease-in-out hover:scale-110 hover:rotate-1"/>
-                </h1>
-                <div id="button" class="gsap-fade-in-up flex justify-center">
-                  <button id="show-works-btn" class="button">
-                    <svg viewBox="0 0 24 24" class="arr-2" xmlns="http://www.w3.org/2000/svg">
-                      <path
-                        d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"
-                      ></path>
-                    </svg>
-                    <span class="text" id="works-button-text">EXPLORE MY SKILLS</span>
-                    <span class="circle"></span>
-                    <svg viewBox="0 0 24 24" class="arr-1" xmlns="http://www.w3.org/2000/svg">
-                      <path
-                        d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"
-                      ></path>
-                    </svg>
-                  </button>
-                </div>
-        </section>
-        
-        <div class="relative z-10">
-        <div class="absolute top-0 left-0 w-full overflow-hidden transform rotate-180 leading-none pointer-events-none">
-          <svg class="w-full h-24 md:h-32" viewBox="0 0 1440 320" preserveAspectRatio="none">
-            <defs>
-              <linearGradient id="heroToDesignGradient" x1="0%" y1="0%" x2="0%" y2="100%">
-                <stop offset="0%" stop-color="#fef3c7" /> <!-- Light beige to match hero -->
-                <stop offset="100%" stop-color="#fed7aa" />
-              </linearGradient>
-            </defs>
-            <path fill="url(#heroToDesignGradient)" 
-            d="M0,160 C480,240 960,80 1440,160 L1440,320 L0,320 Z" 
-            class="hero-separator-shadow"
-          />
-        </svg>
-        </div>
-      </div>
-        <section id="works-section" class="hidden opacity-0w-full transition-all duration-500 transform origin-top opacity-0 scale-y-0 pointer-events-none">
-        <div id="design-panel"
-    onclick="location.href='/design-projects'"
-    class="relative mt-24 z-0 pt-2 bg-gradient-to-br from-amber-400 via-orange-400 to-amber-600 text-white p-8 flex flex-col justify-center items-center text-center cursor-pointer hover:scale-105 transition-transform duration-300">
-
-    <div class="max-w-sm">
-        <div class="flex justify-center items-center mb-6">
-            <img src="/assets/images/logodp.png" alt="Design Logo"
-                class="h-32 w-auto transition-transform duration-500 ease-in-out hover:scale-110 hover:rotate-1" />
-        </div>
-        <p class="mb-8 text-white/90">Découvrez mes travaux créatifs incluant le design graphique, l'UI/UX et les projets d'arts visuels.</p>
-        <button
-        onclick="location.href='/code-projects'"
-        class="mt-8 px-8 py-3 rounded-full border-2 border-white text-white font-semibold text-lg bg-gradient-to-r from-amber-200 to-orange-200 shadow-md hover:shadow-xl transition-all duration-300 hover:scale-105 hover:text-white hover:bg-gradient-to-r hover:from-amber-300 hover:to-orange-300">
-        Voir les projets de design
-      </button>
+<body class="bg-[#f9f5ef] text-softblack font-sans">
+  <header class="fixed top-0 inset-x-0 z-50 bg-[#f9f5ef]/90 backdrop-blur border-b border-[#ece3d7]">
+    <div class="max-w-6xl mx-auto px-6 py-5 flex items-center justify-between">
+      <a href="#hero" class="font-display text-2xl tracking-[0.3em] text-softblack">ESSENTÉ</a>
+      <nav class="hidden md:flex gap-8 text-sm uppercase tracking-[0.3em] text-charcoal">
+        <a href="#vision" class="hover:text-black">La marque</a>
+        <a href="#collections" class="hover:text-black">Collections</a>
+        <a href="#durabilite" class="hover:text-black">Durabilité</a>
+        <a href="#storytelling" class="hover:text-black">Slow Living</a>
+        <a href="#commerce" class="hover:text-black">E-commerce</a>
+        <a href="#contact" class="hover:text-black">Contact</a>
+      </nav>
+      <button class="md:hidden text-xs uppercase tracking-[0.3em] text-charcoal">Menu</button>
     </div>
-</div>
-<div id="programming-panel" class="bg-gradient-to-br from-[#0e7490] via-[#0f766e] to-[#172554] text-white p-8 flex flex-col justify-center items-center text-center cursor-default">
-  <div class="max-w-sm">
-    <div class="flex justify-center items-center mb-6">
-      <img src="/assets/images/LOGOCP.png" alt="Coding Logo" 
-           class="h-32 w-auto transition-transform duration-500 ease-in-out hover:scale-110 hover:rotate-1" />
-    </div>
-    <p class="mb-8 text-white/90">Explorez mes projets techniques, de la conception de sites web aux applications logicielles complexes.</p>
-    <button onclick="location.href='/code-projects'" class="animated-button programming-button">
-      <div class="animated-button-bg">
-        <div class="animated-button-bg-layers">
-          <div class="animated-button-bg-layer animated-button-bg-layer-1 -teal"></div>
-          <div class="animated-button-bg-layer animated-button-bg-layer-2 -blue"></div>
-          <div class="animated-button-bg-layer animated-button-bg-layer-3 -indigo"></div>
-        </div>
-      </div>
-      <div class="animated-button-inner">
-        <span class="animated-button-inner-static">Voir les projets de code</span>
-        <span class="animated-button-inner-hover">Voir les projets de code</span>
-      </div>
-    </button>
-  </div>
-</div>
-        </section>
+  </header>
 
-        <div class="w-full overflow-hidden leading-none">
-          <svg class="w-full h-24 md:h-32 transform rotate-180" viewBox="0 0 1440 320" preserveAspectRatio="none">
-            <defs>
-              <linearGradient id="blueBottomGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                <stop offset="0%" stop-color="#172554" />
-                <stop offset="100%" stop-color="#0f766e" />
-              </linearGradient>
-            </defs>
-            <path fill="url(#blueBottomGradient)" d="M0,160 C480,240 960,80 1440,160 L1440,320 L0,320 Z"></path>
-          </svg>
-        </div>
-        
-
-        <!-- About Section -->
-        <section id="about" class="py-20 px-4 bg-indigo-50/0">
-            <div class="max-w-4xl mx-auto text-center gsap-fade-in-up">
-                <img 
-                src="/assets/images/am2.png"
-                alt="Bannière Design Mohamed Slimani"
-                class="h-[250px] mx-auto mb-6 
-                drop-shadow-full max-w-[0_8px_8px_rgba(0,0,0,0.2)] 
-                transition duration-700 ease-in-out
-                hover:invert hover:grayscale hover:scale-105 hover:drop-shadow-full"
-                />
-                <p class="text-gray-700 leading-relaxed text-lg mb-8">
-                    Je suis un développeur Full-Stack et un designer passionné avec une solide expérience en création d'applications web robustes et d'expériences utilisateur intuitives. Mon parcours m'a permis de maîtriser un large éventail de technologies, du front-end au back-end, tout en affinant mes compétences en design graphique et UI/UX. J'aime résoudre des problèmes complexes et construire des solutions élégantes qui ont un impact réel.
-                </p>
-                <div class="grid md:grid-cols-2 gap-8 text-left">
-                    <div class="bg-white/80 p-6 rounded-lg shadow-md gsap-fade-in-left group">
-                        <h3 class="text-2xl md:text-4xl font-light text-gray-800 mb-6 flex justify-center items-center gap-4">
-                            <img src="assets/images/ct2.png" 
-                                alt="Compétences Techniques Mohamed Slimani" 
-                                class="h-[190px] transition-transform duration-300 ease-in-out group-hover:scale-110 group-hover:rotate-3" />
-                        </h3>
-                        <ul class="space-y-3 text-gray-600">
-                            <li class="flex items-center gap-3"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-teal-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>Développement Web (React, Next.js, Node.js)</li>
-                            <li class="flex items-center gap-3"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-teal-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>Bases de Données (PostgreSQL, MongoDB, Firebase)</li>
-                            <li class="flex items-center gap-3"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-teal-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>Cloud Computing (AWS, GCP)</li>
-                            <li class="flex items-center gap-3"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-teal-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>Version Control (Git, GitHub)</li>
-                        </ul>
-                    </div>
-                    <div class="bg-white/80 p-6 rounded-lg shadow-md gsap-fade-in-left group">
-                        <h3 class="text-2xl md:text-4xl font-light text-gray-800 mb-6 flex justify-center items-center gap-4">
-                            <img src="assets/images/cd.png" 
-                                 alt="Compétences en Design Mohamed Slimani" 
-                                 class="h-[190px] transition-transform duration-300 ease-in-out group-hover:scale-110 group-hover:rotate-3" />
-                        </h3>
-                        <ul class="space-y-3 text-gray-600">
-                            <li class="flex items-center gap-3"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-amber-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>UI/UX Design (Figma, Sketch)</li>
-                            <li class="flex items-center gap-3"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-amber-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>Design Graphique (Photoshop, Illustrator)</li>
-                            <li class="flex items-center gap-3"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-amber-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>Branding & Identité Visuelle</li>
-                            <li class="flex items-center gap-3"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-amber-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>Modélisation 3D (Blender, AutoCAD)</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Article Section -->
-        <div class="w-full overflow-hidden leading-none opacity-60" data-aos="fade-up" data-aos-duration="1000">
-            <svg class="w-full h-24 md:h-32" viewBox="0 0 1440 320" preserveAspectRatio="none">
-              <defs>
-                <linearGradient id="warmArticleGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                  <stop offset="0%" stop-color="#fde68a" stop-opacity="0.5" />
-                  <stop offset="100%" stop-color="#fca5a5" stop-opacity="0.5" />
-                </linearGradient>
-              </defs>
-              <path 
-                fill="url(#warmArticleGradient)" 
-                d="M0,160 C360,80 1080,240 1440,160 L1440,320 L0,320 Z" 
-              />
-            </svg>
-        </div>
-
-        <section id="article-section" class="py-24 px-4 relative z-20 bg-[rgba(255,235,200,0.2)]">
-            <div class="max-w-4xl mx-auto text-center" data-aos="fade-up" data-aos-duration="1000">
-                <!-- Heading -->
-                <div class="flex justify-center mb-6" data-aos="fade-up" data-aos-duration="1000">
-                    <img
-                        src="/assets/images/article.png"
-                        alt="Latest Articles"
-                        class="w-64 md:w-80 transform transition duration-500 hover:scale-105 hover:rotate-1"
-                    />
-                </div>
-
-                <!-- Subheading -->
-                <p class="text-lg md:text-xl text-gray-700 leading-relaxed font-light">
-                    Stay tuned for insights on <span class="text-[#0f766e] font-medium">web development</span>,
-                    <span class="text-[#0f766e] font-medium">design trends</span>, and
-                    <span class="text-[#0f766e] font-medium">emerging technologies</span>.
-                </p>
-
-                <!-- Article Preview Card with low opacity -->
-                <div
-                class="mt-12 bg-white/70 backdrop-blur-md rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500 ease-in-out p-8 max-w-2xl mx-auto group relative overflow-hidden"
-                data-aos="zoom-in-up"
-                data-aos-delay="200"
-                >
-                    <div class="absolute -top-10 -left-10 w-40 h-40 bg-gradient-to-tr from-[#0f766e]/20 to-[#0ea5e9]/30 rounded-full blur-2xl opacity-40 pointer-events-none group-hover:opacity-60 transition-opacity duration-300"></div>
-
-                    <p class="text-base md:text-lg text-gray-800 font-medium leading-relaxed">
-                        📝 <em>This section is coming soon!</em> You'll find in-depth articles on UX/UI,
-                        performance, full-stack best practices, and design workflow optimization.
-                    </p>
-                </div>
-            </div>
-        </section>
-
-        <div class="w-full overflow-hidden leading-none">
-            <svg class="w-full h-24 md:h-32" viewBox="0 0 1440 320" preserveAspectRatio="none">
-              <defs>
-                <linearGradient id="aboutArticleGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                  <stop offset="0%" stop-color="#e5e7eb" />
-                  <stop offset="100%" stop-color="#5eead4" />
-                </linearGradient>
-              </defs>
-              <path fill="url(#aboutArticleGradient)" d="M0,160 C480,240 960,80 1440,160 L1440,320 L0,320 Z" />
-            </svg>
-        </div>
-   
-        <!-- Skills Dashboard Section -->
-        <section id="skills" class="py-20 md:py-28 bg-white">
-          <div class="max-w-4xl mx-auto text-center" data-aos="fade-up" data-aos-duration="1000">
-            <!-- Heading -->
-            <div class="flex justify-center mb-6" data-aos="fade-up" data-aos-duration="1000">
-                <img
-                    src="/assets/images/Skills.png"
-                    alt="Latest Articles"
-                    class="w-64 md:w-80 transform transition duration-500 hover:scale-105 hover:rotate-1"
-                />
-            </div>
-              <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-                  <div>
-                      <h2 class="text-2xl font-bold text-center mb-4 font-display text-gray-700">Core Competencies</h2>
-                      <div class="chart-container">
-                          <canvas id="skillsRadarChart"></canvas>
-                      </div>
-                  </div>
-                  <div>
-                      <h3 class="text-2xl font-bold text-center mb-4 font-display text-gray-700">Tool & Technology Proficiency</h3>
-                       <div class="chart-container">
-                          <canvas id="skillsBarChart"></canvas>
-                      </div>
-                  </div>
-              </div>
+  <main class="pt-28">
+    <section id="hero" class="relative overflow-hidden">
+      <div class="absolute -top-32 -left-24 w-72 h-72 rounded-full bg-[#efe6da] blur-3xl opacity-80"></div>
+      <div class="absolute top-40 -right-10 w-80 h-80 rounded-full bg-[#e9dfd1] blur-3xl opacity-70"></div>
+      <div class="max-w-6xl mx-auto px-6 py-20 grid lg:grid-cols-[1.1fr_0.9fr] gap-14 items-center relative">
+        <div>
+          <p class="uppercase tracking-[0.4em] text-xs text-warmgray">Quality over quantity</p>
+          <h1 class="font-display text-5xl md:text-6xl leading-tight mt-6 text-softblack">
+            ESSENTÉ,
+            <span class="block text-charcoal">le minimal luxe durable.</span>
+          </h1>
+          <p class="mt-6 text-lg text-charcoal/80 max-w-xl">
+            Une alternative consciente à la fast fashion. Des essentiels purs, conçus pour durer, dans un univers calme et apaisant.
+          </p>
+          <div class="mt-10 flex flex-wrap items-center gap-6">
+            <a href="#collections" class="bg-softblack text-[#f9f5ef] px-8 py-4 text-sm uppercase tracking-[0.3em] rounded-full shadow-soft hover:bg-charcoal">
+              Découvrir la collection
+            </a>
+            <span class="text-sm uppercase tracking-[0.3em] text-warmgray">Luxe accessible & intemporel</span>
           </div>
-      </section>
-        <!-- Contact Section -->
-        <section id="contact-section" class="relative overflow-hidden text-gray-900 pt-0 pb-20 px-4 bg-gradient-to-br from-sky-50 via-white to-sky-100">
-            <!-- Background Bubbles (statique, sans animation) -->
-            <div class="absolute inset-0 z-0 pointer-events-none">
-              <div class="absolute w-96 h-96 bg-[#00AED3]/20 rounded-full -top-40 -left-40"></div>
-              <div class="absolute w-72 h-72 bg-[#00AED3]/20 rounded-full -bottom-20 -right-20"></div>
+        </div>
+        <div class="bg-white/70 border border-[#ece3d7] rounded-[32px] p-10 shadow-soft space-y-8">
+          <div class="h-full flex flex-col justify-between gap-10">
+            <div>
+              <p class="uppercase tracking-[0.3em] text-xs text-warmgray">Signature ESSENTÉ</p>
+              <h2 class="font-display text-3xl mt-4 text-softblack">Minimal Luxe, Slow Rhythm</h2>
+              <p class="mt-4 text-charcoal/80">
+                Matières naturelles — lin, laine, coton — et finitions exigeantes pour des pièces qui traversent le temps.
+              </p>
             </div>
-          
-            <div class="relative z-10 max-w-3xl mx-auto text-center">
-              <div class="max-w-4xl mx-auto text-center">
-                <img 
-                  src="assets/images/ro.png"
-                  alt="Contact"
-                  class="h-[220px] mx-auto mb-6 opacity-90 hover:opacity-100 hover:scale-105 hover:brightness-110 transition-all duration-700 ease-in-out drop-shadow-xl" />
-          
-                <h2 class="text-3xl md:text-4xl font-extrabold text-[#00AED3] mb-4">Entrons en contact !</h2>
-          
-                <p class="text-base md:text-lg text-gray-600 mb-10">
-                  Vous avez un projet, une question ou simplement envie d'échanger ? N'hésitez pas à me laisser un message ci-dessous. Je vous répondrai dans les plus brefs délais !
-                </p>
-              </div>
-            </div>
-          
-            <form class="space-y-5 text-left max-w-xl mx-auto px-4">
+            <div class="rounded-[28px] border border-[#ece3d7] bg-gradient-to-br from-[#fbf7f1] via-[#f2eadf] to-[#e8ddcf] p-6">
+              <div class="flex items-center justify-between">
                 <div>
-                <label for="name" class="block text-sm font-semibold mb-1 text-[#00AED3]">Votre Nom</label>
-                <input type="text" id="name" placeholder="Votre Nom" required
-                  class="w-full p-3 rounded-lg border border-[#00AED3]/40 bg-white placeholder-sky-400 focus:outline-none focus:ring-2 focus:ring-[#00AED3] transition duration-300 hover:shadow-md hover:bg-sky-50" />
-              </div>
-              <div>
-                <label for="email" class="block text-sm font-semibold mb-1 text-[#00AED3]">Votre Email</label>
-                <input type="email" id="email" placeholder="you@example.com" required
-                  class="w-full p-3 rounded-lg border border-[#00AED3]/40 bg-white placeholder-sky-400 focus:outline-none focus:ring-2 focus:ring-[#00AED3] transition duration-300 hover:shadow-md hover:bg-sky-50" />
-              </div>
-              <div>
-                <label for="message" class="block text-sm font-semibold mb-1 text-[#00AED3]">Votre Message</label>
-                <textarea id="message" rows="5" placeholder="Écrivez votre message..." required
-                  class="w-full p-3 rounded-lg border border-[#00AED3]/40 bg-white placeholder-sky-400 focus:outline-none focus:ring-2 focus:ring-[#00AED3] transition duration-300 hover:shadow-md hover:bg-sky-50"></textarea>
-              </div>
-          
-              <button type="submit" class="flex items-center justify-center mx-auto px-8 py-3 rounded-full bg-gradient-to-r from-[#00AED3] to-sky-600 text-white font-semibold hover:from-sky-600 hover:to-[#00AED3] transition-all duration-300 transform hover:scale-105 hover:shadow-lg relative overflow-hidden">
-                <div class="icon-wrapper transition-all duration-300 absolute inset-0 flex items-center justify-center opacity-0">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
-                    <path fill="none" d="M0 0h24v24H0z"/>
-                    <path d="M1.946 9.315c-.522-.174-.527-.455.01-.634l19.087-6.362c.529-.176.832.12.684.638l-5.454 19.086c-.15.529-.455.547-.679.045L12 14l6-8-8 6-8.054-2.685z"/>
+                  <p class="uppercase tracking-[0.3em] text-xs text-warmgray">Capsule iconique</p>
+                  <p class="mt-2 font-display text-2xl text-softblack">La veste Sable</p>
+                  <p class="mt-3 text-sm text-charcoal/80">Coupe droite, texture naturelle, doublure soyeuse.</p>
+                </div>
+                <div class="w-20 h-28 rounded-2xl border border-[#e0d6c8] bg-white/60 flex items-center justify-center">
+                  <svg viewBox="0 0 96 140" class="w-12 h-16 text-charcoal/70" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M30 20L48 10L66 20L78 40V120L60 130H36L18 120V40L30 20Z" stroke="currentColor" stroke-width="3"/>
+                    <path d="M48 10V130" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
                   </svg>
                 </div>
-                <span class="inline-block transition-all duration-300">Envoyer</span>
-              </button>
-              
-          
-              <p class="text-sm text-gray-500 mt-4">
-                En soumettant ce formulaire, vous acceptez que vos données soient utilisées pour répondre à votre demande. Consultez notre <a href="#" class="text-sky-600 hover:underline">Politique de Confidentialité</a> pour plus d'informations.
-              </p>
-            </form>
-          
-            <div class="mt-12 flex justify-center space-x-8">
-              <a href="#" target="_blank" rel="noopener noreferrer"
-                class="text-[#00AED3] hover:text-sky-800 transition-transform duration-300 hover:scale-110" aria-label="LinkedIn Profile">
-                <svg class="h-8 w-8" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                  <path d="M19 0h-14c-2.761..." />
-                </svg>
-              </a>
-              <a href="#" target="_blank" rel="noopener noreferrer"
-                class="text-[#00AED3] hover:text-sky-800 transition-transform duration-300 hover:scale-110" aria-label="GitHub Profile">
-                <svg class="h-8 w-8" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                  <path fill-rule="evenodd" d="M12 2C6.477..." clip-rule="evenodd" />
-                </svg>
-              </a>
+              </div>
             </div>
-        </section>
-
-        <!-- Footer -->
-        <footer class="bg-stone-800 text-stone-100 py-8 text-center text-sm">
-            <p>&copy; 2025 Mohamed Slimani. All rights reserved.</p>
-            <div class="mt-2 space-x-4">
-                <a href="#" class="hover:underline">LinkedIn</a>
-                <a href="#" class="hover:underline">GitHub</a>
-                <a href="#" class="hover:underline">Email</a>
+            <div class="grid grid-cols-2 gap-4 text-sm">
+              <div class="border border-[#ece3d7] rounded-2xl p-4 bg-[#fdfbf7]">
+                <p class="text-warmgray uppercase tracking-[0.3em] text-xs">Édition</p>
+                <p class="mt-2 font-medium text-charcoal">Limitée</p>
+              </div>
+              <div class="border border-[#ece3d7] rounded-2xl p-4 bg-[#fdfbf7]">
+                <p class="text-warmgray uppercase tracking-[0.3em] text-xs">Approche</p>
+                <p class="mt-2 font-medium text-charcoal">Moins, mais mieux</p>
+              </div>
+              <div class="border border-[#ece3d7] rounded-2xl p-4 bg-[#fdfbf7]">
+                <p class="text-warmgray uppercase tracking-[0.3em] text-xs">Distribution</p>
+                <p class="mt-2 font-medium text-charcoal">DTC premium</p>
+              </div>
+              <div class="border border-[#ece3d7] rounded-2xl p-4 bg-[#fdfbf7]">
+                <p class="text-warmgray uppercase tracking-[0.3em] text-xs">Univers</p>
+                <p class="mt-2 font-medium text-charcoal">Neutre & apaisant</p>
+              </div>
             </div>
-        </footer>
-    </main>
+          </div>
+        </div>
+      </div>
+    </section>
 
-    <script src="/assets/js/main.js"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    animation: {
-                        'pulse-slow': 'pulse 8s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-                        'pulse-slower': 'pulse 12s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-                    }
-                }
-            }
-        }
-    </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>AOS.init();</script>
-    <script>
-      document.getElementById("show-works-btn").addEventListener("click", () => {
-        const worksSection = document.getElementById("works-section");
-        worksSection.classList.remove("hidden", "opacity-0");
-        worksSection.classList.add("block", "opacity-100");
-        worksSection.scrollIntoView({ behavior: "smooth" });
-      });
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script>
-      // Radar Chart
-      const radarCtx = document.getElementById('skillsRadarChart').getContext('2d');
-      new Chart(radarCtx, {
-        type: 'radar',
-        data: {
-          labels: ['Frontend Dev', 'Backend Dev', 'UI/UX Design', 'Database Mgt.', 'DevOps'],
-          datasets: [{
-            label: 'Skill Level',
-            data: [95, 75, 85, 70, 60],
-            fill: true,
-            backgroundColor: 'rgba(14, 116, 144, 0.2)',
-            borderColor: '#0e7490',
-            pointBackgroundColor: '#0e7490'
-          }]
-        },
-        options: {
-          responsive: true,
-          scales: {
-            r: {
-              angleLines: { color: '#e5e7eb' },
-              grid: { color: '#f3f4f6' },
-              pointLabels: { color: '#111827', font: { size: 14 } },
-              ticks: { display: false }
-            }
-          },
-          plugins: { legend: { display: false } }
-        }
-      });
-    
-      // Bar Chart
-      const barCtx = document.getElementById('skillsBarChart').getContext('2d');
-      new Chart(barCtx, {
-        type: 'bar',
-        data: {
-          labels: ['React', 'Node.js', 'Python', 'Figma', 'Adobe XD', 'Git'],
-          datasets: [{
-            label: 'Proficiency',
-            data: [95, 80, 70, 85, 80, 75],
-            backgroundColor: 'rgba(14, 116, 144, 0.6)',
-            borderRadius: 6,
-            barPercentage: 0.7
-          }]
-        },
-        options: {
-          indexAxis: 'y',
-          scales: {
-            x: { beginAtZero: true, max: 100 },
-            y: { ticks: { color: '#1f2937', font: { size: 14 } } }
-          },
-          plugins: {
-            legend: { display: false }
-          }
-        }
-      });
-    </script>
-    
-    
-    
+    <section id="vision" class="bg-white/60 border-y border-[#ece3d7]">
+      <div class="max-w-6xl mx-auto px-6 py-20 grid lg:grid-cols-3 gap-12">
+        <div>
+          <p class="uppercase tracking-[0.3em] text-xs text-warmgray">La marque</p>
+          <h2 class="font-display text-4xl mt-4 text-softblack">Notre vision ESSENTÉ</h2>
+        </div>
+        <div class="lg:col-span-2 grid md:grid-cols-3 gap-8">
+          <div class="bg-[#fdfbf7] border border-[#ece3d7] rounded-3xl p-6">
+            <h3 class="font-display text-2xl text-softblack">Le constat</h3>
+            <p class="mt-4 text-charcoal/80">La fast fashion accélère la surconsommation et l’épuisement des ressources.</p>
+          </div>
+          <div class="bg-[#fdfbf7] border border-[#ece3d7] rounded-3xl p-6">
+            <h3 class="font-display text-2xl text-softblack">La promesse</h3>
+            <p class="mt-4 text-charcoal/80">Créer des essentiels raffinés, pensés pour durer et transmettre.</p>
+          </div>
+          <div class="bg-[#fdfbf7] border border-[#ece3d7] rounded-3xl p-6">
+            <h3 class="font-display text-2xl text-softblack">Philosophie</h3>
+            <p class="mt-4 text-charcoal/80">Moins de pièces, plus de sens : qualité, intemporalité, sérénité.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="collections" class="max-w-6xl mx-auto px-6 py-20">
+      <div class="flex flex-wrap items-end justify-between gap-8">
+        <div>
+          <p class="uppercase tracking-[0.3em] text-xs text-warmgray">Collections</p>
+          <h2 class="font-display text-4xl mt-4 text-softblack">Éditions limitées</h2>
+          <p class="mt-4 text-charcoal/80 max-w-xl">Un vestiaire épuré : coupes nettes, textures naturelles et palette sable, écru, gris chaud, noir doux.</p>
+        </div>
+        <a href="#commerce" class="text-sm uppercase tracking-[0.3em] text-charcoal border-b border-charcoal pb-2">Voir l'expérience DTC</a>
+      </div>
+      <div class="mt-12 grid md:grid-cols-3 gap-8">
+        <div class="border border-[#ece3d7] rounded-[28px] p-6 bg-white shadow-soft">
+          <p class="uppercase tracking-[0.3em] text-xs text-warmgray">Capsule 01</p>
+          <h3 class="font-display text-2xl mt-4 text-softblack">Lignes pures</h3>
+          <p class="mt-4 text-charcoal/80">Manteau en laine, pantalon tailleur et maille fine. Structure et fluidité.</p>
+          <p class="mt-6 text-sm uppercase tracking-[0.3em] text-charcoal">Lin & laine mérinos</p>
+        </div>
+        <div class="border border-[#ece3d7] rounded-[28px] p-6 bg-white shadow-soft">
+          <p class="uppercase tracking-[0.3em] text-xs text-warmgray">Capsule 02</p>
+          <h3 class="font-display text-2xl mt-4 text-softblack">Essentiels doux</h3>
+          <p class="mt-4 text-charcoal/80">Coton biologique, silhouettes aériennes, couleur écru et sable.</p>
+          <p class="mt-6 text-sm uppercase tracking-[0.3em] text-charcoal">Coton certifié GOTS</p>
+        </div>
+        <div class="border border-[#ece3d7] rounded-[28px] p-6 bg-white shadow-soft">
+          <p class="uppercase tracking-[0.3em] text-xs text-warmgray">Capsule 03</p>
+          <h3 class="font-display text-2xl mt-4 text-softblack">Noir doux</h3>
+          <p class="mt-4 text-charcoal/80">Pièces signature pour le soir, reflets mats et finitions subtiles.</p>
+          <p class="mt-6 text-sm uppercase tracking-[0.3em] text-charcoal">Laine & viscose responsable</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="durabilite" class="bg-[#fdfbf7] border-y border-[#ece3d7]">
+      <div class="max-w-6xl mx-auto px-6 py-20 grid lg:grid-cols-[1.1fr_0.9fr] gap-12">
+        <div>
+          <p class="uppercase tracking-[0.3em] text-xs text-warmgray">Durabilité & impact</p>
+          <h2 class="font-display text-4xl mt-4 text-softblack">Transparence tangible</h2>
+          <p class="mt-6 text-charcoal/80">
+            Des matières écoresponsables, un sourcing traçable et des emballages recyclables pour une empreinte maîtrisée.
+          </p>
+        </div>
+        <div class="space-y-6">
+          <div class="bg-white border border-[#ece3d7] rounded-3xl p-6">
+            <h3 class="font-display text-2xl text-softblack">Matières naturelles</h3>
+            <p class="mt-4 text-charcoal/80">Lin européen, laine certifiée, coton biologique cultivé sans pesticides.</p>
+          </div>
+          <div class="bg-white border border-[#ece3d7] rounded-3xl p-6">
+            <h3 class="font-display text-2xl text-softblack">Certifications</h3>
+            <p class="mt-4 text-charcoal/80">GOTS, OEKO-TEX et audits réguliers auprès d’ateliers partenaires.</p>
+          </div>
+          <div class="bg-white border border-[#ece3d7] rounded-3xl p-6">
+            <h3 class="font-display text-2xl text-softblack">Packaging</h3>
+            <p class="mt-4 text-charcoal/80">Boîtes recyclables, encres végétales, expéditions neutres en carbone.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="storytelling" class="max-w-6xl mx-auto px-6 py-20">
+      <div class="grid lg:grid-cols-2 gap-12">
+        <div>
+          <p class="uppercase tracking-[0.3em] text-xs text-warmgray">Storytelling</p>
+          <h2 class="font-display text-4xl mt-4 text-softblack">Slow Living ESSENTÉ</h2>
+          <p class="mt-6 text-charcoal/80">
+            Un lifestyle éditorial qui invite au calme : lumière douce, matières tactiles, silhouettes intemporelles. ESSENTÉ célèbre la simplicité luxueuse et le temps retrouvé.
+          </p>
+        </div>
+        <div class="bg-white border border-[#ece3d7] rounded-[32px] p-8 shadow-soft">
+          <p class="uppercase tracking-[0.3em] text-xs text-warmgray">Journal</p>
+          <h3 class="font-display text-2xl mt-4 text-softblack">Éditorial & inspirations</h3>
+          <ul class="mt-6 space-y-4 text-charcoal/80">
+            <li>• Rituels matinaux et garde-robe capsule.</li>
+            <li>• Entretiens avec artisans et ateliers européens.</li>
+            <li>• Guides d’entretien pour prolonger la vie des pièces.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="commerce" class="bg-white/60 border-y border-[#ece3d7]">
+      <div class="max-w-6xl mx-auto px-6 py-20 grid lg:grid-cols-[1.1fr_0.9fr] gap-12 items-center">
+        <div>
+          <p class="uppercase tracking-[0.3em] text-xs text-warmgray">E-commerce</p>
+          <h2 class="font-display text-4xl mt-4 text-softblack">Expérience DTC premium</h2>
+          <p class="mt-6 text-charcoal/80">
+            Peu de produits, des paniers élevés et un service personnalisé. Essayage simplifié, livraison soignée, retours responsables.
+          </p>
+          <div class="mt-8 flex flex-wrap gap-4">
+            <span class="border border-[#ece3d7] rounded-full px-4 py-2 text-xs uppercase tracking-[0.3em] text-charcoal">Conciergerie style</span>
+            <span class="border border-[#ece3d7] rounded-full px-4 py-2 text-xs uppercase tracking-[0.3em] text-charcoal">Précommandes limitées</span>
+            <span class="border border-[#ece3d7] rounded-full px-4 py-2 text-xs uppercase tracking-[0.3em] text-charcoal">Paiement fractionné</span>
+          </div>
+        </div>
+        <div class="bg-[#fdfbf7] border border-[#ece3d7] rounded-[32px] p-8">
+          <h3 class="font-display text-2xl text-softblack">Parcours d’achat</h3>
+          <p class="mt-4 text-charcoal/80">Un tunnel minimaliste, rapide et élégant.</p>
+          <ol class="mt-6 space-y-4 text-sm text-charcoal/80">
+            <li>01. Sélection guidée par silhouettes et matières.</li>
+            <li>02. Conseil taille & entretien instantané.</li>
+            <li>03. Livraison premium, emballage recyclable.</li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="max-w-6xl mx-auto px-6 py-20">
+      <div class="grid lg:grid-cols-[1.1fr_0.9fr] gap-12">
+        <div>
+          <p class="uppercase tracking-[0.3em] text-xs text-warmgray">Contact</p>
+          <h2 class="font-display text-4xl mt-4 text-softblack">Restons connectés</h2>
+          <p class="mt-6 text-charcoal/80">
+            Suivez ESSENTÉ pour découvrir les coulisses, les éditions limitées et les conseils slow fashion.
+          </p>
+          <div class="mt-10 flex gap-6 text-sm uppercase tracking-[0.3em]">
+            <a href="#" class="border-b border-charcoal pb-2 text-charcoal">Instagram</a>
+            <a href="#" class="border-b border-charcoal pb-2 text-charcoal">TikTok</a>
+            <a href="#" class="border-b border-charcoal pb-2 text-charcoal">Newsletter</a>
+          </div>
+        </div>
+        <form class="bg-white border border-[#ece3d7] rounded-[32px] p-8 shadow-soft space-y-5">
+          <div>
+            <label class="text-xs uppercase tracking-[0.3em] text-warmgray">Nom</label>
+            <input type="text" placeholder="Votre nom" class="mt-2 w-full bg-transparent border-b border-[#d8cdbf] pb-3 focus:outline-none focus:border-charcoal" />
+          </div>
+          <div>
+            <label class="text-xs uppercase tracking-[0.3em] text-warmgray">Email</label>
+            <input type="email" placeholder="vous@email.com" class="mt-2 w-full bg-transparent border-b border-[#d8cdbf] pb-3 focus:outline-none focus:border-charcoal" />
+          </div>
+          <div>
+            <label class="text-xs uppercase tracking-[0.3em] text-warmgray">Message</label>
+            <textarea rows="4" placeholder="Parlez-nous de vos attentes" class="mt-2 w-full bg-transparent border-b border-[#d8cdbf] pb-3 focus:outline-none focus:border-charcoal"></textarea>
+          </div>
+          <button type="submit" class="w-full bg-softblack text-[#f9f5ef] py-3 rounded-full text-sm uppercase tracking-[0.3em] hover:bg-charcoal">
+            Envoyer
+          </button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t border-[#ece3d7] py-8 text-center text-xs uppercase tracking-[0.3em] text-warmgray">
+    ESSENTÉ © 2025 — Quality over quantity
+  </footer>
 </body>
-</html> 
+</html>
